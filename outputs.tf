@@ -1,6 +1,6 @@
 output "mlflow_server_public_ip" {
   description = "Public IP of MLFlow server"
-  value       = aws_instance.mlflow_server.public_ip
+  value       = "http://${aws_instance.mlflow_server.public_ip}:5000"
 }
 
 output "deployment_server_public_ip" {

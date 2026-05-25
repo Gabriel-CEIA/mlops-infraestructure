@@ -1,14 +1,13 @@
-name: Deploy Infrastructure
+name: Deploy Bare Infrastructure
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  S3_TERRAFORM_BACKEND_BUCKET: ${{ secrets.S3_TERRAFORM_BACKEND_BUCKET }}
 
 jobs:
   deploy:
@@ -24,10 +23,7 @@ jobs:
           terraform_version: 1.15.2
 
       - name: Initialize Terraform
-        run: terraform init
-
-      - name: Retrieve terraform.tfvars from S3
-        run: aws s3 cp s3://mlops-terraform-backend-bucket-12345/terraform.tfvars .
+        run: terraform init -backend-config="bucket=${{ env.S3_TERRAFORM_BACKEND_BUCKET }}" 
 
       - name: Plan Terraform
         run: terraform plan -out=tfplan

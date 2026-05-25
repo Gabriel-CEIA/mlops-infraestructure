@@ -7,4 +7,6 @@
 
 *.lock.*
 
+*.zip
+
 .env
