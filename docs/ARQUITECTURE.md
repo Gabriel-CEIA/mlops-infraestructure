@@ -9,7 +9,8 @@ La arquitectura está diseñada alrededor de un flujo de trabajo MLOps, el cuál
 * Despliegue de modelos
 
 ### Almacenamiento de datos
-Se usan Buckets de S3 como medio principal de almacenamiento. Con una bucket para almacenamiento de datos de entrenamiento y prueba, una para almacenamiento de modelos y otra para el almacenamiento de artefactos de MLFlow
+Se usan Buckets de S3 como medio principal de almacenamiento. Con una bucket para almacenamiento de datos de entrenamiento y prueba, una para almacenamiento de modelos y otra para el almacenamiento de artefactos de MLFlow.
+Nota: Debe subir datos de entrenamiento y prueba a la Bucket S3 de los datos de entrenamiento y prueba para que las intancias de entrenamiento puedan disponer de estos recursos.
 
 ### Entrenamiento y Experimentación
 Para esta capa se usan instancias de EC2 generadas por funciones lambda que son llamadas por los proyectos de investigación para realizar el entrenamiento y las pruebas. El modelo generado y las metricas obtenidas luego son registradas en el servidor de MLFlow.

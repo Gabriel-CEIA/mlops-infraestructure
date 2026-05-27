@@ -51,6 +51,7 @@ EOF
         docker run \
         -e MLFLOW_TRACKING_URI={os.getenv('MLFLOW_TRACKING_URI')} \
         -e DATA_BUCKET_NAME={os.getenv('DATA_BUCKET_NAME')} \
+        -e DATA_BUCKET_NAME={event.get('project_id')} \
         {ecr_repo_url}:latest \
         python train.py
         shutdown -h +1
