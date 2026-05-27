@@ -18,7 +18,7 @@ Puede usar un archivo terraform.tfvars para definir las siguietes variables:
 + **mlflow_db_user:** Nombre del usuario de la base de datos de MLFlow. El valor por defecto es "mlflow".
 + **mlflow_db_passwd:** Nombre del usuario de la base de datos de MLFlow. El valor por defecto es "password".
 
-Para guardar el archivo users.tfvars. Ejecute el commando `./scripts/backup_config.sh` desde el direcotrio raíz del repositorio o suba de forma manual el archivo `terraform.tfvars` a la Bucket S3 definida para el backend de terraform.
+Para guardar el archivo terraform.tfvars. Ejecute el commando `./scripts/backup_config.sh` desde el direcotrio raíz del repositorio o suba de forma manual el archivo `terraform.tfvars` a la Bucket S3 definida para el backend de terraform.
 Finalmente, ejecute el workflow **Deploy and Update Infraestructure** para hacer efectivos sus cambios.
 
 ### Secretos de Github
