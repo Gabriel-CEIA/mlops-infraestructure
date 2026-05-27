@@ -1,4 +1,4 @@
-name: Build and Deploy Server Image
+name: 1-Build and Deploy Server Image
 
 on:
   workflow_dispatch
