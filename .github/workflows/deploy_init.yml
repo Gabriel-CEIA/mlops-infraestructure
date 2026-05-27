@@ -23,7 +23,7 @@ jobs:
           terraform_version: 1.15.2
 
       - name: Initialize Terraform
-        run: terraform init -backend-config="bucket=${{ env.S3_TERRAFORM_BACKEND_BUCKET }}" -var="mlops-users={}" 
+        run: terraform init -backend-config="bucket=${{ env.S3_TERRAFORM_BACKEND_BUCKET }}" -var="mlops-users={} -lock=false" 
 
       - name: Plan Terraform
         run: terraform plan -out=tfplan
