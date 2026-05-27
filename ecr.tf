@@ -9,7 +9,7 @@ resource "aws_ecr_repository" "training_repos" {
 }
 
 resource "aws_ecr_repository" "deployment_repo" {
-  name                 = "deployment/server"
+  name                 = "server"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
