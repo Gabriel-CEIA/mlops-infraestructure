@@ -24,6 +24,7 @@ Finalmente, ejecute el workflow **Deploy and Update Infraestructure** para hacer
 ### Secretos de Github
 Para poder ejecutar los workflows se necesita definir los siguientes secretos en el repositorio de Github.
 
++ **AWS_ACCOUNT_ID:** ID de la cuenta de AWS.
 + **AWS_REGION**: Region de AWS donde se desplegarán los recursos.
 + **AWS_SECRET_ACCESS_KEY**: Llave de acceso a la cuenta de AWS.
 + **AWS_ACCESS_KEY_ID**: Identificación de la llave de acceso.
@@ -36,7 +37,7 @@ En la pestaña de Actions verá los workflows definidos para manejar la infraest
 
 + **Build and Deploy Server Image:** Este workflow crea la imagen Docker del servidor de despliegue definido en la carpeta server. Ejecute este workflow después de levantar la infraestructura por primera vez y cuando actualice el código del servidor.
 
-+ **Deploy and Update Infrestructure:** Este workflow actualiza la infraestructura e integra a los usuarios de la misma. Ejecute este workflow siempre que quiera realizar cambios a los archivo de terraform y al actualizar el archivo terraform.tfvars. <br>
++ **Deploy and Update Infrestructure:** Este workflow actualiza la infraestructura e integra a los usuarios de la misma. Ejecute este workflow siempre que quiera realizar cambios a los archivo de terraform y al actualiza el archivo terraform.tfvars. <br>
 Vea el documento de [integración de usuarios](INTEGRATION.md) para más detalles.
 
 + **Destroy Infraestrucutre:** Este workflow destruye las infraestructura levantada en AWS. 

@@ -24,8 +24,8 @@ jobs:
       - name: Initialize Terraform
         run: terraform init -backend-config="bucket=${{ env.S3_TERRAFORM_BACKEND_BUCKET }}"
 
-      - name: Retrieve terraform.tfvars from S3
-        run: aws s3 cp s3://$S3_TERRAFORM_BACKEND_BUCKET/users.tfvars .
+      - name: Retrieve all .tfvars from S3
+        run: aws s3 cp s3://$S3_TERRAFORM_BACKEND_BUCKET/ . --recursive --exclude "*" --include "*.tfvars"
 
       - name: Plan Terraform
         run: terraform plan -var="image=true" -out=tfplan

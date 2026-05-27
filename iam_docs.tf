@@ -1,5 +1,9 @@
 data "aws_caller_identity" "current" {}
 
+#########
+# Roles #
+#########
+
 data "aws_iam_policy_document" "ec2_role_document" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -46,6 +50,10 @@ data "aws_iam_policy_document" "lambda_role_document" {
     effect  = "Allow"
   }
 }
+
+############
+# Policies #
+############
 
 data "aws_iam_policy_document" "mlflow_policy_document" {
   statement {
@@ -112,27 +120,6 @@ data "aws_iam_policy_document" "deployment_policy_document" {
     ]
   }
 }
-
-# data "aws_iam_policy_document" "ecr_pull_policy_document" {
-#   statement {
-#     actions = [
-#       "ecr:ListImages",
-#       "ecr:GetDownloadUrlForLayer",
-#       "ecr:BatchCheckLayerAvailability",
-#       "ecr:DescribeImages",
-#       "ecr:BatchGetImage"
-#     ]
-#     effect    = "Allow"
-#     resources = ["*"]
-#   }
-#   statement {
-#     actions = [
-#       "ecr:GetAuthorizationToken",
-#     ]
-#     effect    = "Allow"
-#     resources = ["*"]
-#   }
-# }
 
 data "aws_iam_policy_document" "github_actions_policy_documents" {
   for_each = var.mlops-users

@@ -4,7 +4,7 @@ Este repositorio define una IaC en AWS con enfoques MLOps destinada a la investi
 ## Estructura y componentes
 A continuación se describe la estructura del proyecto y como estan organizados los archivos. Para una descripción detetallada del diseño de la infraestructura, vea la [documentación de la arquitectura](./docs/ARQUITECTURA.md).
 
-Archivos de terraform:
+### Archivos de terraform:
 + **backend.tf**: Define el backend donde se guardará el estado de la infraestructura y otras configuraciones esenciales. Véase la documentación del [backend](./docs/BACKEND.md).
 + **cloudwatch.tf**: Define el monitoreo de los recursos de AWS.
 + **ec2.tf**: Define los servidores de despliegue y MLFlow como instancias de EC2.
@@ -21,7 +21,7 @@ Archivos de terraform:
 + **terraform.tf**: Define el proveedor de terraform a usar (AWS).
 + **variables.tf**: Define variables que modifican diversos aspectos de la infraestructura. Vea la documentación de [variables](./docs/VARIABLES.md).
 
-Directorios:
+### Directorios:
 
 + **.github/workflows/**: Aquí se encuentran los workflows de Github Actions que desplegarán la infraestructura. Vea la documentación del [flujo de trabajo](./docs/WORKFLOW.md).
 + **docs/**: Aquí se encuentra documentación adicional de la infraestructura.
@@ -29,6 +29,12 @@ Directorios:
 + **scripts/**: Aquí se encuentran scripts de ayuda y scripts usados por la infraestructura.
 + **server/**: Contiene el código del servidor de despliegue.
 
+## Documentación:
+
++ **[ARQUITECTURE.md](./docs/ARQUITECTURE.md):** Explica la architectura de la plataforma y como los servicios se conectan entre sí de forma general.
++ **[INTEGRATION.md](./docs/INTEGRATION.md):** Explica como integrar nuevos proyectos a la infraestructura.
++ **[SETUP.md](./docs/SETUP.md):** Explica como levantar la infraestructura y el uso de los workflows.
+ 
 
 
 
