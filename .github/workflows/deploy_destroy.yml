@@ -1,4 +1,4 @@
-name: 3-Destroy Infrastructure
+name: 99-Destroy Infrastructure
 
 on:
   workflow_dispatch
