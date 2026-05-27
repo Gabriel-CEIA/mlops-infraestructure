@@ -5,7 +5,7 @@ Este repositorio define una IaC en AWS con enfoques MLOps destinada a la investi
 A continuación se describe la estructura del proyecto y como estan organizados los archivos. Para una descripción detetallada del diseño de la infraestructura, vea la [documentación de la arquitectura](./docs/ARQUITECTURA.md).
 
 ### Archivos de terraform:
-+ **backend.tf**: Define el backend donde se guardará el estado de la infraestructura y otras configuraciones esenciales. Véase la documentación del [backend](./docs/BACKEND.md).
++ **backend.tf**: Define el backend donde se guardará el estado de la infraestructura y otras configuraciones esenciales.
 + **cloudwatch.tf**: Define el monitoreo de los recursos de AWS.
 + **ec2.tf**: Define los servidores de despliegue y MLFlow como instancias de EC2.
 + **ecr.tf**: Define los repositorios para imagenes de Docker.
@@ -19,7 +19,7 @@ A continuación se describe la estructura del proyecto y como estan organizados 
 + **sqs.tf**: Define el servicio SQS usado para sincronizar el servidor de desplique con la Bucket S3 de almacenamiento de modelos.
 + **storage.tf**: Define las Buckets S3 usadas por la infraestructura.
 + **terraform.tf**: Define el proveedor de terraform a usar (AWS).
-+ **variables.tf**: Define variables que modifican diversos aspectos de la infraestructura. Vea la documentación de [variables](./docs/VARIABLES.md).
++ **variables.tf**: Define variables que modifican diversos aspectos de la infraestructura.
 
 ### Directorios:
 
