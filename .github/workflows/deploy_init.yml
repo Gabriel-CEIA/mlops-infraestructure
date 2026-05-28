@@ -1,4 +1,4 @@
-name: 0-Deploy Bare Infrastructure
+name: 00-Deploy Bare Infrastructure
 
 on:
   workflow_dispatch

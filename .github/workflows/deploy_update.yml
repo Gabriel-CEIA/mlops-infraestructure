@@ -1,4 +1,4 @@
-name: 2-Update and Deploy Infrastructure
+name: 02-Update and Deploy Infrastructure
 
 on:
   workflow_dispatch
