@@ -1,11 +1,11 @@
-output "mlflow_server_public_ip" {
-  description = "Public IP of MLFlow server"
+output "mlflow_server_uri" {
+  description = "URI of MLFlow server"
   value       = "http://${aws_instance.mlflow_server.public_ip}:5000"
 }
 
-output "deployment_server_public_ip" {
-  description = "Public IP of deployment server"
-  value       = one(aws_instance.deployment_server[*].public_ip)
+output "deployment_server_uri" {
+  description = "URI of deployment server"
+  value       = "http://${one(aws_instance.deployment_server[*].public_ip)}:8000"
 }
 
 output "lambda_function_name" {

@@ -19,7 +19,7 @@ A continuación se describe la estructura del proyecto y como estan organizados 
 + **sqs.tf**: Define el servicio SQS usado para sincronizar el servidor de desplique con la Bucket S3 de almacenamiento de modelos.
 + **storage.tf**: Define las Buckets S3 usadas por la infraestructura.
 + **terraform.tf**: Define el proveedor de terraform a usar (AWS).
-+ **variables.tf**: Define variables que modifican diversos aspectos de la infraestructura.
++ **variables.tf**: Define variables usadas en el resto de archivos de terraform.
 
 ### Directorios:
 

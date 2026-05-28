@@ -7,5 +7,10 @@ if [[ ! -f "$vars_file" ]]; then
     exit 1
 fi
 
-aws s3 cp "$vars_file" "s3://$S3_TERRAFORM_BACKEND_BUCKET"
+if [[ -z "$S3_TERRAFORM_BACKEND_BUCKET" ]]; then
+    echo "Error: La variable de entorno S3_TERRAFORM_BACKEND_BUCKET no ha sido definida" >&2
+    exit 1
+fi
+
+aws s3 cp "$vars_file" "s3://${S3_TERRAFORM_BACKEND_BUCKET}"
 

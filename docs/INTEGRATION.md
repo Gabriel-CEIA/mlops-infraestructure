@@ -15,12 +15,12 @@ mlops-users = {
 ```
 
 * **USUARIO_AWS:** Puede tomar cualquier valor, pero es recomendable usar la identificación de AWS.
-* **REPOSITORIO:** ruta del repositorio de github siguiendo la estructura `<Usuario/Organización>/<Nombre del Repositorio>`.
+* **REPOSITORIO:** Ruta del repositorio de github siguiendo la estructura `<Usuario/Organización>/<Nombre del Repositorio>`.
 * **ID_DE_PROYECTO:** Nombre que identifica al proyecto de manera única.
 Los caracteres en minúscula, números y el simbolo '-' son válidos para el nombre, pero cualquier otro caracter hará que terraform falle al integrar el proyecto a la infraestructura.
 El nombre puede ser cualquiera, pero se recomienda seguir la siguiente estructura para facilitar la identificación de los proyectos: `<Usuario>-<Libreria ML>-<Nombre del repositorio>`.
 
-Para guardar el archivo users.tfvars. Ejecute el commando `./scripts/backup_users.sh` desde el direcotrio raíz del repositorio o suba de forma manual el archivo `terraform.tfvars` a la Bucket S3 definida para el backend de terraform.
+Para guardar el archivo terraform.tfvars. Ejecute el commando `./scripts/backup_config.sh` desde el direcotrio raíz del repositorio o suba de forma manual el archivo `terraform.tfvars` a la Bucket S3 definida para el backend de terraform.
 Finalmente, ejecute el workflow **Deploy and Update Infraestructure** para hacer efectivos sus cambios.
 
 ## Integración a MLFlow

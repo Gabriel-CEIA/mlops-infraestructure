@@ -44,6 +44,10 @@ resource "aws_instance" "mlflow_server" {
     aws_db_instance.tracking_database,
     aws_s3_bucket.artifact_storage
   ]
+
+  tags = {
+    Name = "mlflow_server"
+  }
 }
 
 resource "aws_instance" "deployment_server" {
@@ -68,5 +72,9 @@ resource "aws_instance" "deployment_server" {
 
   root_block_device {
     volume_size = 16
+  }
+
+  tags = {
+    Name = "deployment_server"
   }
 }
