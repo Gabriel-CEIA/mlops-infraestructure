@@ -34,7 +34,7 @@ jobs:
         run: terraform init -backend-config="use_lockfile=false" -backend-config="bucket=${{ env.S3_TERRAFORM_BACKEND_BUCKET }}"
 
       - name: Destroy Plan Terraform
-        run: terraform plan -destroy -out=tfplan 
+        run: terraform plan -destroy -var="mlops-users={}" -out=tfplan 
 
       - name: Destroy Terraform
         run: terraform apply -auto-approve tfplan"
