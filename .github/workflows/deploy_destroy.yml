@@ -37,4 +37,4 @@ jobs:
         run: terraform plan -destroy -var="mlops-users={}" -out=tfplan 
 
       - name: Destroy Terraform
-        run: terraform apply -auto-approve tfplan"
+        run: terraform apply -auto-approve tfplan
