@@ -1,9 +1,9 @@
 import json
 import boto3
-from config import SQS_QUEUE_URL, AWS_REGION
+import os
 from s3_sync import download_file, delete_file
 
-sqs = boto3.client("sqs", region_name=AWS_REGION)
+sqs = boto3.client("sqs", region_name=os.getenv("AWS_REGION"))
 
 
 def process_message(msg):
@@ -27,7 +27,7 @@ def process_message(msg):
 def run_worker():
     while True:
         resp = sqs.receive_message(
-            QueueUrl=SQS_QUEUE_URL,
+            QueueUrl=os.getenv("SQS_QUEUE_URL"),
             MaxNumberOfMessages=10,
             WaitTimeSeconds=20,
         )
@@ -37,7 +37,7 @@ def run_worker():
                 process_message(msg)
 
                 sqs.delete_message(
-                    QueueUrl=SQS_QUEUE_URL,
+                    QueueUrl=os.getenv("SQS_QUEUE_URL"),
                     ReceiptHandle=msg["ReceiptHandle"],
                 )
             except Exception as e:

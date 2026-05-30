@@ -18,7 +18,8 @@ resource "aws_lambda_function" "training_lambda" {
       DATA_BUCKET_NAME    = aws_s3_bucket.data_storage.bucket
       SUBNET_ID           = aws_subnet.private_subnets["private_3"].id
       SECURITY_GROUP_ID   = aws_security_group.ec2_security_groups["Training"].id
-      ECR_REGISTRY        = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${data.aws_region.current.id}.amazonaws.com"
+      ECR_REGISTRY        = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${data.aws_region.current.region}.amazonaws.com"
+      AWS_REGION          = data.aws_region.current.region
     }
   }
 }

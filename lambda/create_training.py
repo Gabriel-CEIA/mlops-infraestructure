@@ -43,7 +43,7 @@ EOF
         apt update
         apt install docker.io -y
         snap install aws-cli --classic
-        aws ecr get-login-password --region us-east-2 | \
+        aws ecr get-login-password --region {os.getenv('AWS_REGION')} | \
         docker login --username AWS --password-stdin {ecr_repo_url}
 
         docker pull {ecr_repo_url}:latest
