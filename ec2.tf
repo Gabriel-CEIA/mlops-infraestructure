@@ -59,7 +59,7 @@ resource "aws_instance" "deployment_server" {
   subnet_id              = aws_subnet.public_subnets["public_1"].id
   key_name               = aws_key_pair.ssh_access.key_name
   user_data = templatefile("./scripts/deploy-setup.sh", {
-    aws_region     = data.aws_region.current.id
+    aws_region     = data.aws_region.current.region
     ecr_repository = aws_ecr_repository.deployment_repo.repository_url
     s3_bucket      = aws_s3_bucket.model_storage.bucket
     releases_dir   = "/var/local/models"
