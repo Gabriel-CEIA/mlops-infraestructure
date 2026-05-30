@@ -5,7 +5,7 @@ output "mlflow_server_uri" {
 
 output "deployment_server_uri" {
   description = "URI of deployment server"
-  value       = "http://${one(aws_instance.deployment_server[*].public_ip)}:8000"
+  value       = var.deploy ? "http://${one(aws_instance.deployment_server[*].public_ip)}:8000" : null
 }
 
 output "lambda_function_name" {
