@@ -6,27 +6,27 @@
 3. Al abrirse la ventana de la configuración del rol, en Trusted Entity Type, seleccione la opción Custom Trust Policy.
 4. En el campo inferior llamado Custom Trust Policy, se debe copiar y pegar la configuración en formato JSON de abajo.
 ```
-{​
-    "Version": "2012-10-17",​
-    "Statement": [​
-        {​
-            "Effect": "Allow",​
-            "Principal": {​
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
                 "Federated":
-                "arn:aws:iam::<ACCOUNT_ID>:oidc-provider/token.actions.githubusercontent.com"​
-            },​
-            "Action": "sts:AssumeRoleWithWebIdentity",​
-            "Condition": {​
-                "StringEquals": {​
-                    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"​
-                },​
-                "StringLike": {​
+                "arn:aws:iam::<ACCOUNT_ID>:oidc-provider/token.actions.githubusercontent.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+                },
+                "StringLike": {
                     "token.actions.githubusercontent.com:sub":
-                    "repo:<USER/REPO>:ref:refs/heads/main"​
-                }​
-            }​
-        }​
-    ]​
+                    "repo:<USER/REPO>:ref:refs/heads/main"
+                }
+            }
+        }
+    ]
 }
 ```
 Reemplace <ACCOUNT_ID> con el Id la cuenta de AWS, USER con en nombre de usuario/organización de github y REPO con el nombre del repositorio.
@@ -61,7 +61,6 @@ Reemplace <ACCOUNT_ID> con el Id la cuenta de AWS, USER con en nombre de usuario
                 "s3:*",
                 "sqs:*",
                 "ecr:*",
-                "ecr-public:*",
                 "lambda:*",
                 "cloudwatch:*",
                 "logs:*"
@@ -125,7 +124,7 @@ Reemplace <ACCOUNT_ID> con el Id la cuenta de AWS, USER con en nombre de usuario
 Para que Terraform pueda actualizar y mantener un historial de los cambios realizados en la infraestructura de nube, es necesario crear un bucket S3. Esta bucket además será usada para guardar el archivo terraform.tfvars que contiene el registro de los proyectos integrados a la infraestructura, además de otras configuraciones de la infraestructura.
 
 1. En la barra de búsqueda del portal web de AWS buscar S3 e ingrese a la opción.
-2. ​Presione el botón de Create bucket.
+2. Presione el botón de Create bucket.
 3. En el Bucket Type seleccione General Purpose.
 4. En el campo de Bucket Name ingrese un nombre a su elección. Este nombre será usado posteriormente.
 5. En la opción Bucket Versioning seleccionar Enable.
