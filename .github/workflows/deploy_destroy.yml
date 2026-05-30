@@ -30,5 +30,11 @@ jobs:
         with:
           terraform_version: 1.15.2
 
+      - name: Initialize Terraform
+        run: terraform init -backend-config="use_lockfile=false" -backend-config="bucket=${{ env.S3_TERRAFORM_BACKEND_BUCKET }}"
+
+      - name: Destroy Plan Terraform
+        run: terraform plan -destroy -out=tfplan -backend-config="bucket=${{ env.S3_TERRAFORM_BACKEND_BUCKET }}"
+
       - name: Destroy Terraform
-        run: terraform destroy -auto-approve -backend-config="bucket=${{ env.S3_TERRAFORM_BACKEND_BUCKET }}"
+        run: terraform apply -auto-approve tfplan"
