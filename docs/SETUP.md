@@ -78,6 +78,7 @@ Reemplace <ACCOUNT_ID> con el Id la cuenta de AWS, USER con en nombre de usuario
                 "iam:List*",
                 "iam:TagRole",
                 "iam:UntagRole",
+                "iam:GetRolePolicy",
                 "iam:PutRolePolicy",
                 "iam:DeleteRolePolicy",
                 "iam:AttachRolePolicy",
